@@ -12,12 +12,12 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::table('posts', function (Blueprint $table) {
+        $table->foreginId('category_id')->constrained()->onDelete('cascade');
+        //'category_id' は 'categoriesテーブル' の 'id' を参照する外部キーです
+    });
+}
 
     /**
      * Reverse the migrations.
@@ -26,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            
+        });
     }
 };

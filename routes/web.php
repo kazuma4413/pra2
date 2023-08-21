@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/create', [Postcontroller::class ,'create']);
 Route::get('/posts/{post}', [PostController::class ,'show']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+Route::get('/categories/{category}', [CategoryController::class,'index']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::post('/posts', [PostController::class, 'store']);
 // '/posts/{対象データのID}'にGetリクエストが来たら、PostControllerのshowメソッドを実行する
